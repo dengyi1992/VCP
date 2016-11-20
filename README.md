@@ -1,7 +1,7 @@
 # VCP
 验证码的后台以及前端的实现
 ----
-<img src="./screenshoot/s01.png">
+<img src="screenshoot/s01.png">
 
 图片生成的方法有俩种
 > require('captchapng');
