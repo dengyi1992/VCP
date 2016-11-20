@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码测试</title>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.min.js"></script>
+    <script>
+        function sub() {
+            $("#su").ajaxSubmit(function (message) {
+                alert(message.msg);
+                console.log(message);
+                reloadImg();
+                $("#su")[0].reset();
+            });
+
+        }
+
+    </script>
+</head>
+<body>
+<img src="/img2" id="imgcode">
+<form method="get" id="su" action="/verify">
+    <input type="text" name="code">
+    <input type="submit" style="display: none">
+</form>
+<button onclick="sub()">提交</button>
+<script>
+    function reloadImg() {
+        document.getElementById("imgcode").src = "/img2?" + new Date().getTime();
+    }
+    $("#imgcode").on("click", function () {
+        reloadImg();
+    });
+
+</script>
+</body>
+</html>
